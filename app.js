@@ -3,10 +3,11 @@ const app = express();
 app.use(express.static('public'));
 
 
-app.listen(3000, ()=>{
+const port = 3000
+
+app.listen(process.env.PORT || port,() => {
     console.log('Servidor funcionando');
 });
-
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/views/home.html');
 });
